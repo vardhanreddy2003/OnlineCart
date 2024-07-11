@@ -199,6 +199,10 @@ router.post("/priceModification",async(req,res)=>
   const{vegetable,price}=req.body;
   console.log(vegetable);
   let pr=parseInt(price);
+  if(pr===0)
+  {
+    return res.json({message:"please enter the price"});
+  }
   try{
   const result=await vegetableCollection.updateOne({vegetable:vegetable},
     {
@@ -249,13 +253,18 @@ router.post("/checkCoupon",async(req,res)=>
 });
 router.post("/insertVegetable",async(req,res)=>
 {
-  const{vegetable,price}=req.body;
-  const user=await vegetableCollection.findOne({vegetable:vegetable});
+  const{vegetablename,intialprice}=req.body;
+  
+  const user=await vegetableCollection.findOne({vegetable:vegetablename});
   if(user===null)
   {
+    if(intialprice===0)
+    {
+      return res.json({message:"please enter the price"});
+    }
     const details={
-      vegetable:vegetable,
-      price:price,
+      vegetable:vegetablename,
+      price:intialprice,
     };
     const result=await vegetableCollection.insertOne(details);
     console.log("resulted saved",result);

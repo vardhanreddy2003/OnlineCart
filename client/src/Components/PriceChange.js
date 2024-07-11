@@ -5,10 +5,20 @@ function PriceChange()
     const[vegetables,setVegetables]=useState([]);
     const[status,setStatus]=useState("");
     const [vegetable, setSelectedVegetable] = useState('');
-  const [price, setPrice] = useState('');
+  const [price, setPrice] = useState(0);
+  const[intialprice,setIntialPrice]=useState(0);
+  const[vegetablename,setVegetableName]=useState("");
      const handleVegetableChange = (e) => {
     setSelectedVegetable(e.target.value);
   };
+  const handleIntialPriceChange = (e) => {
+    setIntialPrice(e.target.value);
+  };
+  const handleVegetablename = (e) => {
+    setVegetableName(e.target.value);
+  };
+  
+
 
   const handlePriceChange = (e) => {
     setPrice(e.target.value);
@@ -48,9 +58,9 @@ function PriceChange()
    const handleClick=async(event)=>
    {
     event.preventDefault();
-    alert(vegetable);
-    alert(price);
-    const data={vegetable,price};
+    alert(`the vegetable you want to insert is ${vegetablename}`);
+    alert(`the ${vegetablename} price is${intialprice}`);
+    const data={vegetablename,intialprice};
     const response=await fetch("http://localhost:5000/insertVegetable",
         {
             method:"POST",
@@ -149,8 +159,8 @@ price:<input type="number" value={price} placeholder="enter modified price" onCh
 <div>
     <p>if you want to add any vegetables</p>
     <form onSubmit={handleClick}>
-    vegetable name:  <input type="text" value={vegetable} onChange={handleVegetableChange} /> <br></br>
-    Price: <input type="password" value={price} onChange={handlePriceChange} />
+    vegetable name:  <input type="text" value={vegetablename} onChange={handleVegetablename} /> <br></br>
+    Price: <input type="text" value={intialprice} onChange={handleIntialPriceChange} />
                 <button type="submit">submit</button>
             </form>
     </div>
