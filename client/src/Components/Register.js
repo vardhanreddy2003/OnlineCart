@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import '../Css/Register.css'
 function Register()
 {
   const navigate=useNavigate();
@@ -50,14 +50,27 @@ function Register()
       });
       
   return(
-    <div>
-        <form onSubmit={handleRegister} >
+    <div className="register-container">
+      <div className="register-innerContainer">
+      <h1 style={{ width:'100%',color:'orange',alignItems:'center',display:'flex',justifyContent:'center'}}>Register Form</h1>
+      <div className="register-line"></div>
+      <form onSubmit={handleRegister} >
+        <div className="register-nameContainer">
+          <h3>Name:</h3>
+          <input type="name" placeholder="Enter your name" className="register-input" value={name} onChange={handleName}/>
+        </div>
+        <div className="register-passwordContainer">
+          <h3>Password:</h3>
+          <input type="password" placeholder="Enter password" value={password} className="register-input" onChange={handlePassword}/>
 
-           name:<input type="name" placeholder="enter you name" value={name} onChange={handleName}/>
-           password:<input type="password" placeholder="enter the password" value={password} onChange={handlePassword}/>
-           <button type="submit ">Register</button>
-        </form>
-  
+        </div>
+        <div className="register-btnClass">
+          <button type="submit " className="register-submitBtn">Register</button>
+        </div>
+          </form>
+
+      </div>
+        
   
     </div>
 

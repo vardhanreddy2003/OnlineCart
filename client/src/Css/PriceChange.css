@@ -1,0 +1,75 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.priceChange-container:before{
+    height: 100vh;
+    content: "";
+    background-image: url('../Css/images/background.jpg');
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+    
+}
+.priceChange-container{ 
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    height: 100vh;
+    width: 100%;
+}
+.priceChange-innerContainer{
+    position: relative;
+    background-color: #f2f2f2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border-radius: 10%;
+    align-items: center;
+    flex-direction: column;
+}
+.priceChange-submitBtn:hover {
+    background-color: #ffca99; /* Background color on hover */
+  }
+  .priceChange-btnClass{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5%;
+  } 
+  .priceChange-submitBtn{
+    margin: 10px;
+    background-color: orange;
+      border: none;              
+      color: white;             
+      padding: 5px;        
+      font-size: 16px;           
+      cursor: pointer;           
+    border-radius: 5px;       
+      text-align: center;       
+      text-decoration: none;    
+      display: inline-block;  
+      width: 100%;
+}
+.priceChange-input {
+    width: 150px;
+    height: 10px; 
+  border: 1px solid #ccc; 
+  padding: 10px;    
+    border-radius: 5px;
+  }
+.priceChange-inputField{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.princeChange-vegetable{
+    margin: 10px;
+}
+.priceChange-link{
+    padding-top: 20px;
+}

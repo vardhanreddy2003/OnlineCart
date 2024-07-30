@@ -1,0 +1,67 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.billDetails-container:before{
+    height: 100vh;
+    content: "";
+    background-image: url('../Css/images/background.jpg');
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+    
+}
+.billDetails-container{ 
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    height: 100vh;
+}
+.billDetails-innerContainer{
+    position: relative;
+    background-color: #f2f2f2;
+    height: 40%;
+    width: 50%;
+    display: flex;
+    border-radius: 10%;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.billDetails-line{
+    height: 1%;
+    width: 100%;
+    border-radius: 10%;
+    background-color:  #ffca99;
+  }
+  .billDetails-bill{
+    display: flex;
+    gap: 10px;
+  }
+  .billDetails-submitBtn:hover {
+    background-color: #ffca99; /* Background color on hover */
+  }
+  .billDetails-btnClass{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5%;
+  }
+  .billDetails-submitBtn{
+    margin: 10px;
+    background-color: orange;
+      border: none;              
+      color: white;             
+      padding: 10px 20px;        
+      font-size: 16px;           
+      cursor: pointer;           
+    border-radius: 5px;       
+      text-align: center;       
+      text-decoration: none;    
+      display: inline-block;  
+      width: 100%;
+}

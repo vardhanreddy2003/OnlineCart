@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import v1 from '../Css/images/v1.jpg';
+import v2 from '../Css/images/v2.jpg';
+import v3 from '../Css/images/v3.png';
+import v4 from '../Css/images/v4.jpg';
+import v5 from '../Css/images/v5.jpg';
+import v6 from '../Css/images/v6.png';
+import '../Css/Market.css'
 function Market()
 {
+    const vegetableArray=[v1,v2,v3,v4,v5,v6];
     const locationData=useLocation();
     const navigate=useNavigate();
     const username=locationData.state?.username;
@@ -43,7 +51,6 @@ function Market()
             }
         );
         const res=await response.json();
-        alert(`you items are ${res.logInfoArray}`);
         setBill(res.bill);
         setBilldetails(res.logInfoArray);
     }
@@ -57,32 +64,47 @@ function Market()
     {
         if(bill!==0)
             {
-                alert(`bill is ${bill}`);
                 navigate("/BillDetails",{state:{username:username,bill:bill}})
                 
             }
     },[bill]);
     return(
-        <div>
-        <h1>market</h1>
+        <div className="market-container">
+        <h1 style={{marginTop:'10px'}}>Items in market</h1>
         <form onSubmit={addCart}>
-        <ul>
+            <div className="market-gridContainer">
             {vegetables.map((veg,index)=>(
-            <li key={index}>
-                {veg.vegetable}:${veg.price}
-                quantity:
+            <div key={index} className="market-vegetable">
+                <div className="market-nameContainer">
+                    <h3>{veg.vegetable.toUpperCase()}</h3>
+                    <img src={vegetableArray[index%6]} style={{height:'30%',width:'30%',borderRadius:'50%'}}/>
+                </div>
+                <div className="market-price">
+                    <h4 style={{color:'#004d00'}}>Rate per Kg </h4>
+                    <h3>&#x20B9;{veg.price}</h3>
+                </div>
+                <div className="market-priceInput">
+                    <h4>Kgs</h4>
                 <input 
                 type="number"
                 name={veg.vegetable}
                 value={quantities[veg.vegetable]|| 0}
                 placeholder={`${veg.vegetable} quantity`}
                 onChange={handleQuantityChange}
+                className="market-input"
                 />
-            </li> 
+                </div>
+                
+            </div>
+             
             ))}
-        </ul>
-        <button type="submit">add to cart</button>
-        </form>
+            
+            </div>
+            <div className="market-btnClass">
+                <button type="submit" className="market-submitBtn">Add to cart</button>        
+            </div>
+            </form>
+            
         </div>
     );
 }

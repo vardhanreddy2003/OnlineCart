@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import '../Css/Owner.css'
 function Owner()
 { 
   const navigate=useNavigate();
@@ -41,7 +41,7 @@ function Owner()
         { 
           if(res==="validOwner")
             {
-              alert("valid owner");
+              // alert("valid owner");
               navigate("/PriceChange");
             }
             else if(res==="invalidOwner")
@@ -55,14 +55,25 @@ function Owner()
         },[res]);
     
   return(
-    <div id="login">
+    <div className="owner-container">
+      <div className='owner-innerContainer'>
+      <h1 style={{ width:'100%',color:'orange',alignItems:'center',display:'flex',justifyContent:'center'}}>Owner Login</h1>
+      <div className="owner-line"></div>
     <form name="form-login" onSubmit={handleClick}>
-    <span class="fontawesome-user"></span>
-     <input type="text" value={name} onChange={handleName} placeholder="owner name"/>
-     <span class="fontawesome-lock"></span>
-     <input type="password" value={password} onChange={handlePassword} placeholder="password" />
-      <button type="submit">submit</button>
+        <div className="owner-nameContainer">
+          <h3>Name:</h3>
+          <input type="name" value={name} onChange={handleName} placeholder="Enter Owner name" className="owner-input"/>
+        </div>
+        <div className="owner-passwordContainer">
+          <h3>Password:</h3>
+          <input type="password" value={password} onChange={handlePassword} placeholder="Enter password" className="owner-input"/>
+        </div>
+        <div className="owner-btnClass">
+          <button type="submit" className="owner-submitBtn">Login</button>
+        </div>
   </form>
+  </div>
+
   </div>
   );
 }
