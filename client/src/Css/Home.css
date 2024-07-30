@@ -1,0 +1,66 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.home-container:before{
+    height: 100vh;
+    content: "";
+    background-image: url('../Css/images/background.jpg');
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+    
+}
+.home-container{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    gap: 10%;
+    height: 100vh;
+}
+.home-content{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.home-customer{
+    /* opacity: 0.9; */
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    border-radius: 20%;
+}
+.home-owner{
+    /* opacity: 0.9; */
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    border-radius: 20%;
+}
+.home-link{
+    padding-top: 20px;
+}
+.home-textContainer{
+    display: inline-block;
+}
+.home-text{
+    overflow: hidden;
+    border-right: 0.15rem solid orange;
+    white-space: nowrap;
+    animation: typing 4s steps(40,end) infinite;
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import LastPage from './LastPage';
+import '../Css/BillDetails.css';
 function BillDetails()
 {  
      const navigate=useNavigate();
@@ -27,13 +29,12 @@ function BillDetails()
          {
             const bill=Bill/2;
             setBill(bill);
-           
             setCoupon("applied");
             alert("you have coupon and coupon has been applied");
          }
          else{
             alert("there is no coupon available for you");
-         setCoupon("notapplied");
+            setCoupon("notapplied");
          }
     }
     const checkOut=async(event)=>
@@ -60,11 +61,21 @@ function BillDetails()
     },[message]);
     
     return(
-        <div>
-            <h1>bill details page</h1>
-            <h2>total bill : ${Bill}</h2>
-        <button onClick={checkForCoupon}>check for any coupon</button>
-        <button onClick={checkOut}>Proceed to checkout</button>
+        <div className="billDetails-container">
+            <div className="billDetails-innerContainer">
+            <h1 style={{ width:'100%',color:'orange',alignItems:'center',display:'flex',justifyContent:'center'}}>Bill Details</h1>
+            <div className="billDetails-line"></div>
+                <div className="billDetails-bill">
+                    <h2>Total Bill : </h2>
+                    <h2 style={{color:'green'}}>&#x20B9;{Bill}</h2>
+                </div>
+                <div className="billDetails-btnClass">
+                    <button onClick={checkForCoupon} className="billDetails-submitBtn">Check for any coupon</button>
+                    <button onClick={checkOut} className="billDetails-submitBtn">Proceed to checkout</button>    
+                </div>
+                {/* <LastPage/> */}
+            </div>
+            
         </div>
     );
 }

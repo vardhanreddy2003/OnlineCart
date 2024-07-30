@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import '../Css/LastPage.css'
 function LastPage()
 { 
     const locationData=useLocation();
@@ -14,12 +15,17 @@ function LastPage()
         navigate("/");
     }
     return(
-        <div>
-            <h1>thank you for shopping in our shop</h1>
-            <p>click here if you want to buy anything</p>
-            <button onClick={handleClick}>click here</button>
-            <p>click here if you want to logout</p>
-            <button onClick={handleLogout}>logout</button>
+        <div className="lastPage-container">
+            <div className="lastPage-innerContainer">
+                <h1 style={{ width:'100%',color:'orange',alignItems:'center',display:'flex',justifyContent:'center'}}>Thank You For Shopping in Our Shop</h1>
+                <div className="lastPage-line"></div>
+                <div className="lastPage-btnClass">
+                    <button className="lastPage-submitBtn" onClick={handleClick}>Buy Something else?</button>
+                    <button className="lastPage-submitBtn" onClick={handleLogout}>logout</button>    
+                </div>
+                
+            </div>
+            
         </div>
     );
 }

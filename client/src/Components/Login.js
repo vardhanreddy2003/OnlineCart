@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import '../Css/Login.css'
 function Login()
 {
     const navigate=useNavigate();
@@ -55,17 +56,30 @@ function Login()
 
     return(
 
-        <div>
-
-            <form onSubmit={handleClick}>
-              Name:  <input type="text" value={name} onChange={handleName} /> <br></br>
-               Password: <input type="password" value={password} onChange={handlePassword} />
-                <button type="submit">submit</button>
-            </form>
-            <div>
-                <p>dont you have an account?</p>
-                <Link to="/Register">Register</Link>
+        <div className="login-container">
+          <div className="login-innerContainer">
+            <h1 style={{ width:'100%',color:'orange',alignItems:'center',display:'flex',justifyContent:'center'}}>Login Form</h1>
+            <div className="login-line"></div>
+          <form onSubmit={handleClick}>
+            <div className="login-nameContainer">
+              <h3>Name:</h3>
+              <input type="text" value={name} onChange={handleName}  className="login-input" placeholder="Enter Username"/>
             </div>
+            <div className="login-passwordContainer">
+              <h3>Password:</h3>
+              <input type="password" value={password} onChange={handlePassword} className="login-input" placeholder="Enter Password"/>    
+            </div>   
+            <div className="login-btnClass">
+              <button type="submit" className="login-submitBtn">Login</button>
+            </div>
+            <div className="login-register">
+                <p>Don't have an account?</p>
+                <Link to="/Register" style={{borderRadius:'20px',color:'orange', textDecoration:'none',padding:'10px',fontFamily:'cursive'}}>Register</Link>
+            </div>
+          </form>
+            
+          </div>
+            
 
         </div>
     );

@@ -1,0 +1,82 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: cursive;
+}
+.owner-container:before{
+    height: 100vh;
+    content: "";
+    background-image: url('../Css/images/background.jpg');
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+    
+}
+.owner-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.owner-innerContainer{
+    position: relative;
+    background-color: #f2f2f2;
+    height: 50%;
+    width: 30%;
+    display: flex;
+    border-radius: 10%;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.owner-nameContainer,.owner-passwordContainer{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.owner-input {
+    width: 150px;
+    height: 10px; 
+  border: 1px solid #ccc; 
+  padding: 10px;    
+    border-radius: 5px;
+  }
+  .owner-line{
+    height: 1%;
+    width: 100%;
+    border-radius: 10%;
+    background-color:  #ffca99;
+  }
+  .owner-submitBtn{
+    background-color: orange;
+  border: none;              
+  color: white;             
+  padding: 10px 20px;        
+  font-size: 16px;           
+  cursor: pointer;           
+border-radius: 5px;       
+  text-align: center;       
+  text-decoration: none;    
+  display: inline-block;  
+  width: 100%;
+  }
+  .owner-submitBtn:hover {
+    background-color: #ffca99; /* Background color on hover */
+  }
+  .owner-btnClass{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5%;
+
+  }
+  .owner-register{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }

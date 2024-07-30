@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import '../Css/PriceChange.css'
 function PriceChange()
 {
     const[vegetables,setVegetables]=useState([]);
@@ -133,10 +134,9 @@ function PriceChange()
        fetchingVegetables();
     },[]);
   return (
-    <div>
-    <div>
-        <p>if you want to change the price of any vegetable<br/></p>
-        <p>select the vegtable</p>
+    <div className="priceChange-container">
+    <div className="priceChange-innerContainer">
+        <h1>If you want to change the price of any vegetable select from below</h1>
         <div onChange={handleVegetableChange}>
             {vegetables.map((veg,index)=>(
             <div key={index}>
@@ -144,34 +144,46 @@ function PriceChange()
                 type="radio"
                 name="vegetable"
                 value={veg.vegetable}
-                
-                 />
-                 <label htmlFor={veg.vegetable}>{veg.vegetable} and its price is ${veg.price}</label>
+                />
+                 <label htmlFor={veg.vegetable}>{veg.vegetable} and its price is &#x20B9;{veg.price}</label>
            </div>
             )
             )}
         </div>
 
 price:<input type="number" value={price} placeholder="enter modified price" onChange={handlePriceChange} />
-<button type="submit"  onClick={onModification}>click to change</button>
-<button type="submit" onClick={removeVegetable}>click to delete</button>
+<div className="priceChage-btnClass">
+    <button type="submit" className="priceChange-submitBtn" onClick={onModification}>Click to Change</button>
+    <button type="submit" className="priceChange-submitBtn" onClick={removeVegetable}>Click to Delete</button>
 </div>
 <div>
-    <p>if you want to add any vegetables</p>
+    <h2>If you want to add any vegetables</h2>
     <form onSubmit={handleClick}>
-    vegetable name:  <input type="text" value={vegetablename} onChange={handleVegetablename} /> <br></br>
-    Price: <input type="text" value={intialprice} onChange={handleIntialPriceChange} />
-                <button type="submit">submit</button>
+        <div className="priceChange-inputField">
+            <div className="priceChange-vegetable">
+                Vegetable name:  <input type="text" value={vegetablename} onChange={handleVegetablename} className="priceChange-input"/>
+            </div>
+            <div className="priceChange-vegetable">
+                Price: <input type="text" value={intialprice} onChange={handleIntialPriceChange} className="priceChange-input"/>
+            </div>
+        </div>
+    
+            <div className="priceChange-btnClass">
+                <button type="submit" className="priceChange-submitBtn">Submit</button>
+            </div>
+            
             </form>
+            <div>
+        <h2 className="priceChange-innerContainer" style={{marginTop:'-20px'}}>Coupon Allocation</h2>
+        <button onClick={allocateCoupon} className="priceChange-submitBtn">Allocate</button>
     </div>
-    <div>
-        <h2>coupon allocation</h2>
-        <button onClick={allocateCoupon}>allocate</button>
     </div>
-    <div>
-    <p>click here to logout</p>
-    <Link to="/">logout</Link>
+    
+    <div className="priceChange-link">
+    <Link to="/" style={{borderRadius:'20px',color:'white', textDecoration:'none', background:'orange',padding:'10px', fontFamily:'cursive'}}>logout</Link>
     </div>
+
+</div>
     </div>
   );
 }
