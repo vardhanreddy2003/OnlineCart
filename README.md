@@ -3,6 +3,11 @@ Overview
 This project is a comprehensive vegetable market application that caters to both owners and customers. The application features two distinct login systems:
 
 Owner Login: Allows owners to manage vegetable inventory, update prices, add or delete vegetables, and reward top customers with coupons.
+
+
+
+
+
 Customer Login: Enables customers to browse and purchase vegetables, apply available coupons, and manage their cart.
 Features
 Owner Features:
